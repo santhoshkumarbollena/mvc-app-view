@@ -1,3 +1,10 @@
+/**
+*  Developer Section
+*  Handles requests related to Section resources.
+*
+* @author Manideep chamala <manideepchamala@gmail.com>
+*
+*/
 const express = require('express')
 const api = express.Router()
 
@@ -5,14 +12,14 @@ const find = require('lodash.find')
 
 const notfoundstring = 'Could not find section with id='
 
-api.get('/findallsections', (req, res) => {
+api.get('/findall', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
   const data = req.app.locals.sections.query
   res.send(JSON.stringify(data))
 })
 
 
-api.get('/findonesection/:id', (req, res) => {
+api.get('/findone/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
   const id = parseInt(req.params.id)
   const data = req.app.locals.sections.query

@@ -12,8 +12,8 @@ const router = express.Router()
 
 // Manage top-level request first
 router.get('/', (req, res, next) => {
-  // res.sendFile('index.html')
-  res.render('index', { title: 'MVC' })
+   res.sendFile('index.html')
+  
 })
 
 router.get('/index', (req, res, next) => {

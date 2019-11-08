@@ -1,3 +1,10 @@
+/**
+*  Course controller
+*  Handles requests related to course resources.
+*
+* @author Sumanth Gorantla <gorantlasumanth96@gmail.com>
+*
+*/
 const express = require('express')
 const api = express.Router()
 
@@ -5,14 +12,14 @@ const find = require('lodash.find')
 
 const notfoundstring = 'Could not find student with id='
 
-api.get('/findallstudents', (req, res) => {
+api.get('/findall', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
-  const data = req.app.locals.students.query
+  const data = req.app.locals.courses.query
   res.send(JSON.stringify(data))
 })
 
 
-api.get('/findonecourse/:id', (req, res) => {
+api.get('/findone/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
   const id = parseInt(req.params.id)
   const data = req.app.locals.courses.query
