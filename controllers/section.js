@@ -79,13 +79,13 @@ api.post('/save', (req, res) => {
   const item = new Model()
   console.info(`NEW ID ${req.body._id}`)
   item._id = parseInt(req.body._id)
-  item.email = req.body.email
-  item.given = req.body.given
-  item.family = req.body.family
-  item.city = req.body.city
-  item.state = req.body.state
-  item.zip = req.body.zip
-  item.country = req.body.country
+  item.SectionNumber = req.body.SectionNumber
+  item.Days = req.body.Days
+  item.StartTime = req.body.StartTime
+  item.RoomNumber = req.body.RoomNumber
+  item.InstructorId = req.body.InstructorId
+  item.CourseId = req.body.CourseId
+
   res.send(`THIS FUNCTION WILL SAVE A NEW section ${JSON.stringify(item)}`)
 })
 
