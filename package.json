@@ -2,7 +2,7 @@
   "name": "node-express-mvc-views",
   "description": "Express web app using MVC (with views)",
   "version": "1.0.0",
-  "author": "Denise Case",
+  "author": "Santhosh Kumar",
   "dependencies": {
     "body-parser": "latest",
     "cookie-parser": "latest",
@@ -45,7 +45,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/denisecase/node-express-mvc"
+    "url": "https://github.com/santhoshkumarbollena/mvc-app-view"
   },
   "scripts": {
     "pre": "eslint .\\",
