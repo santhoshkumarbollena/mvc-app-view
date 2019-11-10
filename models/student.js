@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const DeveloperSchema = new mongoose.Schema({
+const StudentSchema = new mongoose.Schema({
 
   _id: {
     type: Number,
@@ -28,7 +28,9 @@ const DeveloperSchema = new mongoose.Schema({
   },
   GPA: {
     type: Number,
-    default: 'GPA'
+    minlength: 0,
+    maxlength: 10,
+    required: true
   },
   GitHub: {
     type: String,
@@ -52,4 +54,4 @@ const DeveloperSchema = new mongoose.Schema({
 
   }
 })
-module.exports = mongoose.model('Developer', DeveloperSchema)
+module.exports = mongoose.model('Student', StudentSchema)

@@ -1,13 +1,13 @@
 /**
-*  Developer controller
-*  Handles requests related to developer resources.
+*  Student controller
+*  Handles requests related to student resources.
 *
 * @author Santhosh Kumar Bollena <bollenasanthosh@gmail.com>
 *
 */
 const express = require('express')
 const api = express.Router()
-
+const StudentModel = require('../models/student.js')
 const find = require('lodash.find')
 
 const notfoundstring = 'Could not find student with id='
@@ -38,10 +38,12 @@ api.get('/', (req, res) => {
 
 // GET create
 api.get('/create', (req, res) => {
-  res.render('student/create', {
+  console.log("student")
+  res.render('../views/student/create', {
     students: req.app.locals.students.query,
-    student: new Model()
+    student: new StudentModel()
   })
+  
 })
 
 // GET /delete/:id
@@ -83,16 +85,16 @@ api.get('/edit/:id', (req, res) => {
 api.post('/save', (req, res) => {
   console.info(`Handling POST ${req}`)
   console.debug(JSON.stringify(req.body))
-  // const student = new Model()
-  // console.info(`NEW ID ${req.body._id}`)
-  // student._id = parseInt(req.body._id)
-  // student.Given = req.body.Given
-  // student.Family = req.body.Family
-  // student.Email = req.body.Email
-  // student.GPA = parseInt(req.body.GPA)
-  // student.GitHub = req.body.GitHub
-  // student.Website=req.body.Website
-  // student.SectionId = parseInt(req.body.SectionId)
+  const student = new StudentModel()
+  console.info(`NEW ID ${req.body._id}`)
+  student._id = Number(req.body._id)
+  student.Given = req.body.Given
+  student.Family = req.body.Family
+  student.Email = req.body.Email
+  student.GPA = Number(req.body.GPA)
+  student.GitHub = req.body.GitHub
+  student.Website=req.body.Website
+  student.SectionId = Number(req.body.SectionId)
  
   res.send(`THIS FUNCTION WILL SAVE A NEW student `)
 })
