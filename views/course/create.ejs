@@ -8,18 +8,18 @@
       <br>
       <% 
       maxID=0; 
-      for (var i=0; i < developers.length; i++) {
-        if(developers[i]._id > maxID) { 
-          maxID=developers[i]._id;  
+      for (var i=0; i < courses.length; i++) {
+        if(courses[i]._id > maxID) { 
+          maxID=courses[i]._id;  
         }
       }
-      const developer = {}
-      developer._id = maxID+1
+      const course = {}
+      course._id = maxID+1
      
       %>
       <div class="content">
         <div>
-          <form name="developer" method="POST" action="/developer/save">
+          <form name="course" method="POST" action="/course/save">
 
             <div class="form-group" id=frm>
               <label for="_id">ID</label>
@@ -34,7 +34,7 @@
             </div>
           </form>
 
-          <form method="get" action="/developer">
+          <form method="get" action="/course">
             <input type="submit" value="Return to list" class="btn btn-caution" />
           </form>
 

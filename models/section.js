@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const DeveloperSchema = new mongoose.Schema({
+const SectionSchema = new mongoose.Schema({
 
   _id: {
     type: Number,
@@ -24,7 +24,6 @@ const DeveloperSchema = new mongoose.Schema({
     minlength: 0,
     maxlength: 30,
     required: true,
-    default: 'StartTime'
   },
   RoomNumber: {
     type: String,
@@ -46,4 +45,4 @@ const DeveloperSchema = new mongoose.Schema({
     required: true
   }
 })
-module.exports = mongoose.model('Developer', DeveloperSchema)
+module.exports = mongoose.model('Section', SectionSchema)

@@ -3,36 +3,35 @@
 <div class="container-fluid">
   <div class=row>
     <div class="col col-md-12">
-      <a href="developer/create" class="btn btn-primary new">
-        Create a new developer
+      <a href="section/create" class="btn btn-primary new">
+        Create a new section
       </a>
 
       <h2>Recent entries</h2>
       <p>There are
-        <%= developers.length %> developers.
+        <%= sections.length %> sections.
         <br>
       </p>
-      <% for (let i = developers.length-1; i >= 0; i--) {   
-        developer = developers[i];   %>
+      <% for (let i = sections.length-1; i >= 0; i--) {   
+        section = sections[i];   %>
 
       <div class="panel panel-default">
         <div class="panel-heading"></div>
         <div class="text-muted pull-right"></div>
         <div class="panel-body">
 
-          <br> ID: <%=  developer._id %>
-          <br> Email: <%=developer.email%>
-          <br> Given: <%=developer.given%>
-          <br> Family: <%=developer.family%>
-          <br> City: <%=developer.city %>
-          <br> State: <%=developer.state %>
-          <br> Zip: <%=developer.zip %>
-          <br> Country: <%=developer.country %>
+          <br> ID: <%=  section._id %>
+      <br> SectionNumber: <%=section.SectionNumber%>
+      <br> Days: <%=section.Days%>
+      <br> StartTime: <%=section.StartTime%>
+      <br> RoomNumber: <%=section.RoomNumber %>
+      <br> InstructorId: <%=section.InstructorId %>
+      <br> CourseId: <%=section.CourseId %>
 
           <hr>
-          <a href="/developer/delete/<%= developer._id  %>" class="btn btn-danger"> Delete </a>
-          <a href="/developer/details/<%= developer._id %>" class="btn btn-info"> Details </a>
-          <a href="/developer/edit/<%= developer._id %>" class="btn btn-primary"> Edit </a>
+          <a href="/section/delete/<%= section._id  %>" class="btn btn-danger"> Delete </a>
+          <a href="/section/details/<%= section._id %>" class="btn btn-info"> Details </a>
+          <a href="/section/edit/<%= section._id %>" class="btn btn-primary"> Edit </a>
           <hr>
           <hr>
         </div>

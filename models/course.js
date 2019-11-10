@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose')
 
-const DeveloperSchema = new mongoose.Schema({
+const CourseSchema = new mongoose.Schema({
 
   _id: {
     type: Number,
@@ -49,4 +49,4 @@ const DeveloperSchema = new mongoose.Schema({
   }
 
 })
-module.exports = mongoose.model('Developer', DeveloperSchema)
+module.exports = mongoose.model('Course', CourseSchema)
