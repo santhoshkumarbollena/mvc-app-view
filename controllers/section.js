@@ -111,5 +111,5 @@ api.post('/delete/:id', (req, res) => {
   console.info(`Handling REMOVING ID=${id}`)
   res.send(`THIS FUNCTION WILL DELETE FOREVER THE EXISTING section with id=${id}`)
 })
-
+ 
 module.exports = api
