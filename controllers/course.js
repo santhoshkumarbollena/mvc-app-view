@@ -102,7 +102,7 @@ api.post('/save/:id', (req, res) => {
   console.info(`Handling SAVING ID=${id}`)
   res.send(`THIS FUNCTION WILL SAVE CHANGES TO AN EXISTING course with id=${id}`)
 })
-
+  
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', (req, res) => {
   console.info(`Handling DELETE request ${req}`)
