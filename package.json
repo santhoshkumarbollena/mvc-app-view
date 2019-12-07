@@ -1,24 +1,31 @@
 {
-  "name": "node-express-mvc-views",
-  "description": "Express web app using MVC (with views)",
+  "name": "node-express",
+  "description": "Express web app using MVC",
   "version": "1.0.0",
-  "author": "Santhosh Kumar",
+  "author": "Denise Case",
   "dependencies": {
+    "array-flatten": "latest",
+    "async": "latest",
     "body-parser": "latest",
+    "chalk": "latest",
     "cookie-parser": "latest",
-    "debug": "latest",
-    "ejs": "latest",
-    "config": "latest",
     "consolidate": "latest",
+    "dotenv": "latest",
+    "ejs": "2.7.1",
+    "errorhandler": "latest",
     "express": "latest",
     "express-ejs-layouts": "latest",
+    "express-validator": "latest",
     "helmet": "latest",
     "lodash": "latest",
     "lodash.find": "latest",
+    "mongodb": "^3.2.3",
     "mongoose": "latest",
-    "nedb": "latest",
     "morgan": "latest",
-    "serve-favicon": "latest"
+    "request": "latest",
+    "serve-favicon": "latest",
+    "sort-package-json": "latest",
+    "winston": "latest"
   },
   "devDependencies": {
     "eslint": "latest",
@@ -45,7 +52,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/santhoshkumarbollena/mvc-app-view"
+    "url": "https://github.com/denisecase/node-express-mvc"
   },
   "scripts": {
     "pre": "eslint .\\",

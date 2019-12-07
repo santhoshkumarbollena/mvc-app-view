@@ -73,4 +73,3 @@ const DeveloperSchema = new mongoose.Schema({
 
 })
 module.exports = mongoose.model('Developer', DeveloperSchema)
-// the model Developer is for the developers collection in the database.
