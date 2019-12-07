@@ -1,61 +1,57 @@
-/**
-*  Student model
-*  Describes the characteristics of each attribute in a Student resource.
-*
-* @author Santhosh kumar Bollena
-* @requires mongoose
-*
-*/
 const mongoose = require('mongoose')
-
 const StudentSchema = new mongoose.Schema({
 
-    _id: {
-        type: Number,
-        required: true
-    },
-    given: {
-        type: String,
-        minlength: 3,
-        maxlength: 100,
-        required: true
-    },
-    family: {
-        type: String,
-        minlength: 3,
-        maxlength: 100,
-        required: true
-    },
-    email: {
-        type: String,
-        minlength: 5,
-        maxlength: 100,
-        required: true,
-        unique: true
-    },
-    gpa: {
-        type: Number,
-        minimum: 0,
-        maximum: 4,
-        required: true,
-        default: '0.0'
-    },
-    github: {
-        type: String,
-        minlength: 2,
-        maxlength: 100,
-        required: true,
-        unique: true
-    },
-    website: {
-        type: String,
-        minlength: 5,
-        maxlength: 100,
-        unique: true
-    },
-    sectionId: {
-        type: Number,
-        required: true
-    }
+  _id: {
+    type: Number,
+    required: true
+  },
+  Given: {
+    type: String,
+    minlength: 0,
+    maxlength: 30,
+    required: true,
+    default: 'Given Name'
+  },
+  Family: {
+    type: String,
+    minlength: 0,
+    maxlength: 30,
+    required: true,
+    default: 'Family Name'
+  },
+  Email: {
+    type: String,
+    minlength: 5,
+    maxlength: 100,
+    required: true,
+    unique: true
+  },
+  GPA: {
+    type: Number,
+    minlength: 0,
+    maxlength: 10,
+    required: true
+  },
+  GitHub: {
+    type: String,
+    minlength: 0,
+    maxlength: 30,
+    required: true
+
+  },
+  Website: {
+    type: String,
+    minlength: 0,
+    maxlength: 30,
+    required:true
+
+  },
+  SectionId: {
+    type: Number,
+    minlength: 0,
+    maxlength: 30,
+    required:true
+
+  }
 })
 module.exports = mongoose.model('Student', StudentSchema)

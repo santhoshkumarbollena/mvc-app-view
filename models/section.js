@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-
 const SectionSchema = new mongoose.Schema({
 
   _id: {
@@ -8,46 +7,42 @@ const SectionSchema = new mongoose.Schema({
   },
   SectionNumber: {
     type: String,
-    minlength: 1,
-    maxlength: 100,
+    minlength: 0,
+    maxlength: 2,
     required: true,
-    unique: true
+    default: 'Section Number'
   },
   Days: {
     type: String,
     minlength: 1,
-    maxlength: 100,
-    required: false,
-    default: 'Given name'
+    maxlength: 7,
+    required: true,
+    default: 'Days'
   },
   StartTime: {
-    type: String,
-    minlength: 1,
-    maxlength: 100,
-    required: false,
-    default: 'Family name'
+    type: Number,
+    minlength: 0,
+    maxlength: 30,
+    required: true,
   },
   RoomNumber: {
     type: String,
-    minlength: 1,
-    maxlength: 100,
-    required: true,
-    default: 'Maryville'
+    minlength: 0,
+    maxlength: 30,
+    required: true
   },
-  InstructorID: {
+  InstructorId: {
     type: String,
-    minlength:1,
-    maxlength: 100,
-    required: true,
-    default: 'MO'
-  },
-  CourseID: {
-    type: String,
-    minlength: 1,
-    maxlength: 12,
-    required: true,
-    default: '64468'
-  }
+    minlength: 0,
+    maxlength: 30,
+    required: true
 
+  },
+  CourseId: {
+    type: String,
+    minlength: 0, 
+    maxlength: 30,
+    required: true
+  }
 })
 module.exports = mongoose.model('Section', SectionSchema)

@@ -7,7 +7,6 @@ node_modules/
 # Ignore all .vscode files
 .history/*
 .vscode/*
-logs/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json

@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose')
 
 const CourseSchema = new mongoose.Schema({
@@ -8,34 +9,44 @@ const CourseSchema = new mongoose.Schema({
   },
   SchoolNumber: {
     type: String,
-    minlength: 2,
+    minlength: 0,
     maxlength: 2,
-    required: true,
-    default: "44"
+    required: true
   },
   CourseNumber: {
     type: String,
-    minlength: 3,
+    minlength: 0,
     maxlength: 3,
-    required: true
+    required: true,
+    default: 'Course Number'
   },
   Name: {
     type: String,
-    minlength: 3,
+    minlength: 0,
     maxlength: 100,
-    required: true
+    required: true,
+    default: 'Course name'
   },
   inSpring: {
     type: Boolean,
+    minlength: 0,
+    maxlength: 30,
     required: true
+
   },
   inSummer: {
     type: Boolean,
+    minlength: 0,
+    maxlength: 30,
     required: true
   },
   inFall: {
     type: Boolean,
+    minlength: 0,
+    maxlength: 30,
     required: true
+
   }
+
 })
 module.exports = mongoose.model('Course', CourseSchema)

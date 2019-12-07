@@ -4,17 +4,17 @@
   <div class=row>
     <div class="col col-md-12">
 
-      <h2>Create a new section </h2>
+      <h2>Create a new Section </h2> 
       <br>
       <% 
       maxID=0; 
-      for (var i=0; i < section.length; i++) {
-        if(section[i]._id > maxID) { 
-          maxID=section[i]._id;  
+      for (var i=0; i < sections.length; i++) {
+        if(sections[i]._id > maxID) { 
+          maxID=sections[i]._id;  
         }
       }
-      const sections = {}
-      sections._id = maxID+1
+      const section = {}
+      section._id = maxID+1
      
       %>
       <div class="content">

@@ -4,34 +4,34 @@
   <div class=row>
     <div class="col col-md-12">
       <a href="section/create" class="btn btn-primary new">
-        Create a new section
+        Create a new section 
       </a>
 
       <h2>Recent entries</h2>
       <p>There are
-        <%= section.length %> sections.
+        <%= sections.length %> sections.
         <br>
       </p>
-      <% for (let i = section.length-1; i >= 0; i--) {   
-        sections = section[i];   %>
+      <% for (let i = sections.length-1; i >= 0; i--) {   
+        section = sections[i];   %>
 
       <div class="panel panel-default">
         <div class="panel-heading"></div>
         <div class="text-muted pull-right"></div>
         <div class="panel-body">
 
-          <br> ID: <%=  sections._id %>
-          <br> Section Number: <%=sections.SectionNumber%>
-          <br> Days: <%=sections.Days%>
-          <br> Start Time: <%=sections.StartTime%>
-          <br> Room Number: <%=sections.RoomNumber %>
-          <br> Instructor ID: <%=sections.InstructorID %>
-          <br> Course ID: <%=sections.CourseID %>
+          <br> ID: <%=  section._id %>
+      <br> SectionNumber: <%=section.SectionNumber%>
+      <br> Days: <%=section.Days%>
+      <br> StartTime: <%=section.StartTime%>
+      <br> RoomNumber: <%=section.RoomNumber %>
+      <br> InstructorId: <%=section.InstructorId %>
+      <br> CourseId: <%=section.CourseId %>
 
           <hr>
-          <a href="/section/delete/<%= sections._id  %>" class="btn btn-danger"> Delete </a>
-          <a href="/section/details/<%= sections._id %>" class="btn btn-info"> Details </a>
-          <a href="/section/edit/<%= sections._id %>" class="btn btn-primary"> Edit </a>
+          <a href="/section/delete/<%= section._id  %>" class="btn btn-danger"> Delete </a>
+          <a href="/section/details/<%= section._id %>" class="btn btn-info"> Details </a>
+          <a href="/section/edit/<%= section._id %>" class="btn btn-primary"> Edit </a>
           <hr>
           <hr>
         </div>

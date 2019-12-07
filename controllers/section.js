@@ -1,166 +1,115 @@
 /**
-*  Section controller
-*  Handles requests related to section resources.
+*  Section Section
+*  Handles requests related to Section resources.
 *
-* @author Manideep Chamala
+* @author Manideep chamala <manideepchamala@gmail.com>
+*
 */
 const express = require('express')
 const api = express.Router()
-const CourseModal = require('../models/course.js')
-const SectionSchema = require('../models/section.js')
-const LOG = require('../utils/logger.js')
+const SectionModel = require('../models/section.js')
+const find = require('lodash.find')
+
 const notfoundstring = 'Could not find section with id='
 
-// RESPOND WITH JSON DATA  --------------------------------------------
-
-// GET all JSON
 api.get('/findall', (req, res) => {
-  LOG.info(`Handling /findall ${req}`)
-  SectionSchema.find({}, (err, data) => {
-    if (err) { return res.end('Error finding all') }
-    res.json(data)
-  })
+  res.setHeader('Content-Type', 'application/json')
+  const data = req.app.locals.sections.query
+  res.send(JSON.stringify(data))
 })
 
-// GET one JSON by ID
+
 api.get('/findone/:id', (req, res) => {
-  LOG.info(`Handling /findone ${req}`)
+  res.setHeader('Content-Type', 'application/json')
   const id = parseInt(req.params.id)
-  SectionSchema.find({ _id: id }, (err, results) => {
-    if (err) { return res.end(`notfoundstring ${id}`) }
-    res.json(results[0])
-  })
+  const data = req.app.locals.sections.query
+  const item = find(data, { _id: id })
+  if (!item) { return res.end(notfoundstring + id) }
+  res.send(JSON.stringify(item))
 })
 
-// RESPOND WITH VIEWS  --------------------------------------------
 
-// GET /
+// GET to this controller base URI (the default)
 api.get('/', (req, res) => {
-  LOG.info(`Handling GET / ${req}`)
-  SectionSchema.find({}, (err, data) => {
-    if (err) { return res.end('Error') }
-    res.locals.section = data
-    res.render('section/index')
+  res.render('section/index.ejs', {
+    sections: req.app.locals.sections.query
   })
 })
 
 // GET create
 api.get('/create', (req, res) => {
-  LOG.info(`Handling GET /create ${req}`)
-  SectionSchema.find({}, (err, data) => {
-    if (err) { return res.end('error on create') }
-    res.locals.section = data
-    res.locals.sections = new SectionSchema()
-    res.render('section/create')
+  res.render('section/create', {
+    sections: req.app.locals.sections.query,
+    section: new SectionModel()
   })
 })
 
 // GET /delete/:id
 api.get('/delete/:id', (req, res) => {
-  LOG.info(`Handling GET /delete/:id ${req}`)
   const id = parseInt(req.params.id)
-  SectionSchema.find({ _id: id }, (err, results) => {
-    if (err) { return res.end(notfoundstring) }
-    LOG.info(`RETURNING VIEW FOR ${JSON.stringify(results)}`)
-    res.locals.section = results[0]
-    return res.render('section/delete.ejs')
+  const data = req.app.locals.sections.query
+  const item = find(data, { _id: id })
+  if (!item) { return res.end(notfoundstring + id) }
+  res.render('section/delete', {
+    section: item
   })
 })
 
 // GET /details/:id
 api.get('/details/:id', (req, res) => {
-  LOG.info(`Handling GET /details/:id ${req}`)
   const id = parseInt(req.params.id)
-  SectionSchema.find({ _id: id }, (err, results) => {
-    if (err) { return res.end(notfoundstring) }
-    LOG.info(`RETURNING VIEW FOR ${JSON.stringify(results)}`)
-    res.locals.section = results[0]
-    return res.render('section/details.ejs')
+  const data = req.app.locals.sections.query
+  const item = find(data, { _id: id })
+  if (!item) { return res.end(notfoundstring + id) }
+  res.render('section/details', {
+    section: item
   })
 })
 
 // GET one
 api.get('/edit/:id', (req, res) => {
-  LOG.info(`Handling GET /edit/:id ${req}`)
   const id = parseInt(req.params.id)
-  SectionSchema.find({ _id: id }, (err, results) => {
-    if (err) { return res.end(notfoundstring) }
-    LOG.info(`RETURNING VIEW FOR${JSON.stringify(results)}`)
-    res.locals.section = results[0]
-    return res.render('section/edit.ejs')
+  const data = req.app.locals.sections.query
+  const item = find(data, { _id: id })
+  if (!item) { return res.end(notfoundstring + id) }
+  res.render('section/edit', {
+    section: item
   })
 })
 
 // HANDLE EXECUTE DATA MODIFICATION REQUESTS --------------------------------------------
 
-// POST /save
+// POST new
 api.post('/save', (req, res) => {
-  LOG.info(`Handling POST ${req}`)
-  LOG.debug(JSON.stringify(req.body))
+  console.info(`Handling POST ${req}`)
+  console.debug(JSON.stringify(req.body))
+  const item = new SectionModel()
+  console.info(`NEW ID ${req.body._id}`)
+  item._id = parseInt(req.body._id)
+  item.SectionNumber = req.body.SectionNumber
+  item.Days = req.body.Days
+  item.StartTime = req.body.StartTime
+  item.RoomNumber = req.body.RoomNumber
+  item.InstructorId = req.body.InstructorId
+  item.CourseId = req.body.CourseId
 
-  CourseModal.findOne({ _id: req.body.CourseID }, (err, results) => {
-    if (err || !results) {
-      console.log(results);
-      return res.end(`Invalid course is available with given ID: ${req.body.CourseID}`)
-    } else {
-      const item = new SectionSchema()
-      LOG.info(`NEW ID ${req.body._id}`)
-      item._id = parseInt(req.body._id)
-      item.SectionNumber = req.body.SectionNumber
-      item.Days = req.body.Days
-      item.StartTime = req.body.StartTime
-      item.RoomNumber = req.body.RoomNumber
-      item.InstructorID = req.body.InstructorID
-      item.CourseID = req.body.CourseID
-      item.save((err) => {
-        if (err) { 
-          console.log(err);
-          return res.end('ERROR: item could not be saved', err) 
-        }
-        LOG.info(`SAVING NEW item ${JSON.stringify(item)}`)
-        return res.redirect('/section')
-      })
-    }
-  })
-
+  res.send(`THIS FUNCTION WILL SAVE A NEW section ${JSON.stringify(item)}`)
 })
 
-// POST save with id
+// POST update with id
 api.post('/save/:id', (req, res) => {
-  LOG.info(`Handling SAVE request ${req}`)
+  console.info(`Handling SAVE request ${req}`)
   const id = parseInt(req.params.id)
-  LOG.info(`Handling SAVING ID=${id}`)
-
-  SectionSchema.updateOne({ _id: id },
-    { // use mongoose field update operator $set
-      $set: {
-        SectionNumber: req.body.SectionNumber,
-        Days: req.body.Days,
-        StartTime: req.body.StartTime,
-        RoomNumber: req.body.RoomNumber,
-        InstructorID: req.body.InstructorID,
-        CourseID: req.body.CourseID
-      }
-    },
-    (err, item) => {
-      if (err) { return res.end(notfoundstring) }
-      LOG.info(`ORIGINAL VALUES ${JSON.stringify(item)}`)
-      LOG.info(`UPDATED VALUES: ${JSON.stringify(req.body)}`)
-      LOG.info(`SAVING UPDATED item ${JSON.stringify(item)}`)
-      return res.redirect('/section')
-    })
+  console.info(`Handling SAVING ID=${id}`)
+  res.send(`THIS FUNCTION WILL SAVE CHANGES TO AN EXISTING section with id=${id}`)
 })
 
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', (req, res) => {
-  LOG.info(`Handling DELETE request ${req}`)
+  console.info(`Handling DELETE request ${req}`)
   const id = parseInt(req.params.id)
-  LOG.info(`Handling REMOVING ID=${id}`)
-  SectionSchema.remove({ _id: id }).setOptions({ single: true }).exec((err, deleted) => {
-    if (err) { return res.end(notfoundstring) }
-    console.log(`Permanently deleted item ${JSON.stringify(deleted)}`)
-    return res.redirect('/section')
-  })
+  console.info(`Handling REMOVING ID=${id}`)
+  res.send(`THIS FUNCTION WILL DELETE FOREVER THE EXISTING section with id=${id}`)
 })
-
+ 
 module.exports = api

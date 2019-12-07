@@ -68,8 +68,9 @@ const DeveloperSchema = new mongoose.Schema({
     minlength: 4,
     maxlength: 100,
     required: true,
-  
+    default: 'http://yourwebsite.com'
   }
 
 })
 module.exports = mongoose.model('Developer', DeveloperSchema)
+// the model Developer is for the developers collection in the database.
