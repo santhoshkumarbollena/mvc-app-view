@@ -2,8 +2,7 @@
 *  Section controller
 *  Handles requests related to section resources.
 *
-* @author Chaitanya Popuri <s536803@nwmissouri.edu>
-*
+* @author Manideep Chamala
 */
 const express = require('express')
 const api = express.Router()

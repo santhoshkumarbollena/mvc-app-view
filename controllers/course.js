@@ -2,7 +2,7 @@
 *  Courses controller
 *  Handles requests related to course resources.
 *
-* @author Prasannakumar <s537361@nwmissouri.edu>
+* @author sumanth gorantla
 *
 */
 
