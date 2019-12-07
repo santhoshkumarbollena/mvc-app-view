@@ -68,7 +68,7 @@ const DeveloperSchema = new mongoose.Schema({
     minlength: 4,
     maxlength: 100,
     required: true,
-    default: 'http://yourwebsite.com'
+  
   }
 
 })

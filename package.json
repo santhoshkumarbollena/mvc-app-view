@@ -2,7 +2,7 @@
   "name": "node-express",
   "description": "Express web app using MVC",
   "version": "1.0.0",
-  "author": "Denise Case",
+  "author": "Santhosh manideep sumanth",
   "dependencies": {
     "array-flatten": "latest",
     "async": "latest",
@@ -52,7 +52,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/denisecase/node-express-mvc"
+    "url": "https://github.com/santhoshkumarbollena/mvc-app-view"
   },
   "scripts": {
     "pre": "eslint .\\",

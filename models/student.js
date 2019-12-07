@@ -2,7 +2,7 @@
 *  Student model
 *  Describes the characteristics of each attribute in a Student resource.
 *
-* @author Deepak Malempati <s537238@nwmissouri.edu>
+* @author Santhosh kumar Bollena
 * @requires mongoose
 *
 */
