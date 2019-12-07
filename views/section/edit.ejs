@@ -4,8 +4,8 @@
   <div class=row>
     <div class="col col-md-12">
 
-      <h2>Edit Section </h2>
- 
+      <h2>Edit section </h2>
+
       <div class="content">
         <form method="POST" action="/section/save/<%= section._id %>">
           <div class="form-group" id=frm>
@@ -15,11 +15,11 @@
 
           <!-- COMMON TO EDIT AND CREATE -->
           <%include partial_edit.ejs %>
-          
+
           <input type="submit" value="Save" class="btn btn-primary" />
         </form>
 
-        <form method="get" action="/section">
+        <form method="get" action="/developer">
           <input type="submit" value="Return to list" class="btn btn-caution" />
         </form>
 

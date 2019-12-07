@@ -1,15 +1,19 @@
-### MVC
-Section - 04
-Group - 06
-## Link to Repo:
-- [Repo](https://github.com/santhoshkumarbollena/mvc-app)
+# express-mvc
 
-## Image of all collaborators
+- [Demo](https://express-mvc-app.herokuapp.com)
+- [Source](https://github.com/prasu93/express-mvc)
 
-![Image](Images/image.png)
+## Section - 04
 
-# Repo to demonstrate Section,Student,Course Controller.
-Done by 
-- Santhosh Kumar Bollena
-- Sumanth Gorantla
-- Manideep chamala
+## Group - 03
+
+- Prasannakumar
+- Deepak
+- Chaitanya
+![team](Team.png)
+
+## Roles
+
+- Course -> Prasannakumar
+- Student -> Deepak
+- Section -> Chaitanya

@@ -1,35 +1,13 @@
 [
   {
-    "_id": 1,
-    "email": "bollenasanthosh@gmail.com",
-    "given": "Santhosh",
-    "family": "Bollena",
+    "_id": 99,
+    "email": "dcase@nwmissouri.edu",
+    "given": "Denise",
+    "family": "Case",
     "city": "Maryville",
     "state": "MO",
     "zip": 64468,
     "country": "USA",
-    "URL": "https://santhoshkumarbollena.github.io/static-user-interaction-page/"
-  },
-  {
-    "_id": 2,
-    "email": "sumanthgorantla@gmail.com",
-    "given": "sumanth",
-    "family": "Goantla",
-    "city": "Maryville",
-    "state": "MO",
-    "zip": 64468,
-    "country": "USA",
-    "URL": "https://github.com/gorantla96/about-me"
-  },
-  {
-    "_id": 3,
-    "email": "manideepchamala@gmail.com",
-    "given": "manideep",
-    "family": "chamala",
-    "city": "Maryville",
-    "state": "MO",
-    "zip": 64468,
-    "country": "USA",
-    "URL": "https://github.com/manideepchamala/AboutMe"
+    "URL": "https://www.nwmissouri.edu/csis/directory/case.htm"
   }
 ]
